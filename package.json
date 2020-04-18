@@ -1,0 +1,46 @@
+{
+  "name": "search-operators",
+  "version": "1.0.0",
+  "description": "A search operators parser to filter search results",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm-run-all -s clean transpile process-grammar minify-grammar",
+    "process-grammar": "node ./lib/index.js",
+    "minify-grammar": "babel ./dist/parser.js --presets minify --no-comments --out-dir dist --out-file-extension .min.js",
+    "transpile": "babel ./src --out-dir lib",
+    "clean": "rimraf dist lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fedemartinm/search-operators.git"
+  },
+  "keywords": [
+    "search",
+    "parser",
+    "commands"
+  ],
+  "author": "fedemartinm",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fedemartinm/search-operators/issues"
+  },
+  "homepage": "https://github.com/fedemartinm/search-operators#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-preset-minify": "^0.5.1",
+    "colors": "^1.4.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "syntax-cli": "^0.1.13",
+    "uglify-js": "^3.9.1"
+  },
+  "dependencies": {}
+}
