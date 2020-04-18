@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "build": "npm-run-all -s clean transpile process-grammar minify-grammar",
-    "process-grammar": "node ./lib/index.js",
-    "minify-grammar": "babel ./dist/parser.js --presets minify --no-comments --out-dir dist --out-file-extension .min.js",
+    "validate": "npm-run-all clean transpile process-grammar validate-grammar",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "transpile": "babel ./src --out-dir lib",
     "clean": "rimraf dist lib",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "process-grammar": "node ./lib/index.js",
+    "validate-grammar": "./node_modules/syntax-cli/bin/syntax --grammar ./lib/grammar.temp.js -m slr1 --validate",
+    "minify-grammar": "babel ./dist/search-operators.js --presets minify --no-comments --out-dir dist --out-file-extension .min.js",
+  
   },
   "babel": {
     "presets": [
