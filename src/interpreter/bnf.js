@@ -13,8 +13,8 @@ export default {
   ExactFilter: [['EXACT_PHRASE', '$$ = {type:"exact",value:$1};']],
   MatchFilter: [
     [
-      'NOT_OP MATCH_OP',
-      '$$ = {type:"not-match",key:$2.split(":")[0],value:$2.split(":")[1] };',
+      'NOT_MATCH_OP',
+      '$$ = {type:"not-match",key:$1.split(":")[0],value:$1.split(":")[1] };',
     ],
     [
       'MATCH_OP',
@@ -30,6 +30,5 @@ export default {
     ['Terms Term', '$$ = [].concat($1, $2);'],
     ['Term', '$$=[$1]'],
   ],
-  Term: [['Word']],
-  Word: ['WORD'],
+  Term: [['TEXT']],
 };
