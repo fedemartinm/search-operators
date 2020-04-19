@@ -11,7 +11,7 @@ export default {
     ['not', "return 'NOT_OP'"],
     [
       '\\w+:\\w+',
-      "if(yy.options.keys.indexOf(yytext.split(':')[0])!==-1)return 'MATCH_OP';yytext.replace(':',' '); return 'WORD';",
+      "if(yy.options.keys.indexOf(yytext.split(':')[0])!==-1)return 'MATCH_OP'; return 'WORD';",
     ],
     //Words
     ['[^\\u0000-\\u007F]+', 'return "WORD";'],
