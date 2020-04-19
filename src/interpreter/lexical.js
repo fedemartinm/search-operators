@@ -23,7 +23,7 @@ export default {
     ],
     [
       '{identifier}:{identifier}',
-      "console.log('salgocon',yytext,yy.options.keys.indexOf(yytext.split(':')[0]));if(yy.options.keys.indexOf(yytext.split(':')[0])!==-1)return 'MATCH_OP'; return 'TEXT';",
+      "if(yy.options.keys.indexOf(yytext.split(':')[0])!==-1)return 'MATCH_OP'; return 'TEXT';",
     ],
     //Text
     ['{text}', "return 'TEXT'"],
