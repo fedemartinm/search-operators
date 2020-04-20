@@ -1,0 +1,17 @@
+{
+  "name": "search-operators-highlight-demo",
+  "version": "1.0.0",
+  "description": "basic usage of search operators",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "fedemartinm",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "figlet": "^1.3.0",
+    "fuse.js": "^5.2.1"
+  }
+}

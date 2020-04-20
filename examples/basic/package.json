@@ -1,0 +1,12 @@
+{
+  "name": "search-operators-basic-demo",
+  "version": "1.0.0",
+  "description": "basic usage of search operators",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "fedemartinm",
+  "license": "MIT"
+}
