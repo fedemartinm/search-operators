@@ -9,12 +9,12 @@ A search operators parser to filter search requests
 ### Parsing strings
 ```js
 const searchOperators = require('./search-operators');
-var value = searchOperators.parse('+react useState');
+var value = searchOperators.parse('+github.com useState useEffect');
 console.log(value); 
 //the parser will separate the text in terms and filters.
 //{
 //  "filters": [{ "type": "exact", "value": "github.com" }],
-//  "terms": ["useState"]
+//  "terms": ["useState","useEffect"]
 //}
 ```
 
