@@ -56,10 +56,6 @@ console.log(parser.tokens);
 //}
 ```
 
-### Limitations
-A search is defined by the rule `<Fitlers> <Terms> | <Terms> <Filters>`. Filters must be added at the beginning or at the end. Something like `+p term1 term2 -p` will not work.
-
-
 ### Development
 
 This project is intended to be extended or modified.  It's uses syntax to generate the parser; in case you need to modify the grammar, [syntax](https://github.com/DmitrySoshnikov/syntax) is very well documented. Any contribution is very appreciated.
