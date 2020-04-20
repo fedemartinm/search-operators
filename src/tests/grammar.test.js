@@ -5,42 +5,49 @@ import parser from '../../dist/search-operators';
  */
 test('unicode support', () => {
   expect(parser.parse('😊')).toEqual({
+    filters: [],
     terms: ['😊'],
   });
 });
 
 test('test simple word', () => {
   expect(parser.parse('search')).toEqual({
+    filters: [],
     terms: ['search'],
   });
 });
 
 test('remove spaces', () => {
   expect(parser.parse('   best   search')).toEqual({
+    filters: [],
     terms: ['best', 'search'],
   });
 });
 
 test('multiple terms', () => {
   expect(parser.parse('how to use react')).toEqual({
+    filters: [],
     terms: ['how', 'to', 'use', 'react'],
   });
 });
 
 test('code term', () => {
   expect(parser.parse('expect.assertions(1);')).toEqual({
+    filters: [],
     terms: ['expect.assertions(1);'],
   });
 });
 
 test('code terms', () => {
   expect(parser.parse(' await user.getUserName(1); return null')).toEqual({
+    filters: [],
     terms: ['await', 'user.getUserName(1);', 'return', 'null'],
   });
 });
 
 test('unicode terms', () => {
   expect(parser.parse('mamá く ま')).toEqual({
+    filters: [],
     terms: ['mamá', 'く', 'ま'],
   });
 });
@@ -69,6 +76,7 @@ test('excluding n words', () => {
 test('exact word', () => {
   expect(parser.parse('+angular')).toEqual({
     filters: [{ type: 'exact', value: 'angular' }],
+    terms: [],
   });
 });
 
@@ -85,16 +93,26 @@ test('exact n words', () => {
 test('exact phrase', () => {
   expect(parser.parse('"+1 +3 -3  &VÑ"')).toEqual({
     filters: [{ type: 'exact', value: '+1 +3 -3  &VÑ' }],
+    terms: [],
   });
 });
 
 test('exact phrases', () => {
-  expect(parser.parse('"this" "that"')).toEqual({
-    filters: [
-      { type: 'exact', value: 'this' },
-      { type: 'exact', value: 'that' },
-    ],
-  });
+  expect(parser.parse('"this" "that"')).toEqual(
+    expect.objectContaining({
+      filters: expect.arrayContaining([
+        expect.objectContaining({
+          type: 'exact',
+          value: 'this',
+        }),
+        expect.objectContaining({
+          type: 'exact',
+          value: 'that',
+        }),
+      ]),
+      terms: [],
+    })
+  );
 });
 
 /**
@@ -103,12 +121,14 @@ test('exact phrases', () => {
 
 test('match whitout key', () => {
   expect(parser.parse('in:hell')).toEqual({
+    filters: [],
     terms: ['in:hell'],
   });
 });
 
 test('match whitout keys', () => {
   expect(parser.parse('from:a to:b')).toEqual({
+    filters: [],
     terms: ['from:a', 'to:b'],
   });
 });
@@ -119,11 +139,13 @@ test('match keys', () => {
       { type: 'match', key: 'from', value: 'js' },
       { type: 'match', key: 'in', value: 'general' },
     ],
+    terms: [],
   });
 });
 
 test('not match whitout keys', () => {
   expect(parser.parse('not from:a')).toEqual({
+    filters: [],
     terms: ['not from:a'],
   });
 });
@@ -131,6 +153,7 @@ test('not match whitout keys', () => {
 test('not match whit keys', () => {
   expect(parser.parse('not in:general', { keys: ['in'] })).toEqual({
     filters: [{ type: 'not-match', key: 'in', value: 'general' }],
+    terms: [],
   });
 });
 
