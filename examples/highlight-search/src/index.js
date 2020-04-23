@@ -1,4 +1,4 @@
-const parser = require('../../../dist/search-operators');
+const parser = require('search-operators');
 const readline = require('readline');
 const figlet = require('figlet');
 const chalk = require('chalk');
