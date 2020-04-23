@@ -10,6 +10,8 @@ import moduleInclude from './module';
 export default {
   lex,
   moduleInclude,
+  // Not relevant to this grammar
+  // since operations are atomic
   operators: [
     [`left`, `EXACT_PHRASE`],
     [`left`, `NOT_MATCH`],

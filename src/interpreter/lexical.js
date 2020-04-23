@@ -1,4 +1,8 @@
 import macros from './macros';
+
+/**
+ * In order to simplify the grammar, rules capture complete expressions.
+ */
 export default {
   macros,
   rules: [
