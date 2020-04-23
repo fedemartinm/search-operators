@@ -1,12 +1,26 @@
-# search-operators
+![npm](https://img.shields.io/npm/v/search-operators)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/search-operators?color=green)
+
+# Search Operators
 A search operators parser to filter search requests
 
-- supports unicode terms
-- case-insensitive
-- based on LR parser
-- 3kb gziped
+- Unicode support 
+- Case-insensitive
+- Based on LR parser
+- No dependencies
 
-### Parsing strings
+### Installation
+```shell
+yarn add search-operators
+```
+
+or
+
+```shell
+npm install search-operators --save
+```
+
+### Basic Usage
 ```js
 const searchOperators = require('./search-operators');
 var value = searchOperators.parse('+github.com useState useEffect');
