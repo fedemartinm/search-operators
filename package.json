@@ -10,8 +10,8 @@
   ],
   "scripts": {
     "build": "npm-run-all -s clean transpile process-grammar minify-grammar",
-    "validate": "npm-run-all clean transpile process-grammar validate-grammar",
-    "test": "npm-run-all clean transpile process-grammar test-grammar",
+    "validate": "npm-run-all build validate-grammar",
+    "test": "npm-run-all build test-grammar",
     "transpile": "babel ./src --out-dir lib",
     "transpile-grammar": "babel ./dist/search-operators.js -out-dir dist --out-file-extension .js",
     "clean": "rimraf dist lib",
