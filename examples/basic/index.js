@@ -1,4 +1,4 @@
-var parser = require('../../dist/search-operators');
+var parser = require('search-operators');
 const readline = require('readline');
 
 var rl = readline.createInterface({
@@ -19,6 +19,8 @@ var rl = readline.createInterface({
 function parseSearch(line) {
   try {
     console.log(parser.parse(line));
+    //uncomment to see tokens
+    //console.log('Tokens', parser.tokens);
   } catch (ex) {
     //this can happen
     //should consider adopting a common strategy

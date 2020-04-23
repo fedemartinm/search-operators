@@ -1,6 +1,6 @@
 {
   "name": "search-operators-basic-demo",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "basic usage of search operators",
   "main": "index.js",
   "scripts": {
@@ -8,5 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "fedemartinm",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "search-operators": "^1.0.8"
+  }
 }
