@@ -2,9 +2,12 @@
   "name": "search-operators",
   "version": "1.0.0",
   "description": "A search operators parser to filter search results",
-  "main": "dist/search-operators.js",
-  "module": "dist/search-operators.js",
-  "unpkg": "dist/search-operators.min.js",
+  "main": "/dist/search-operators.js",
+  "module": "/dist/search-operators.js",
+  "unpkg": "/dist/search-operators.min.js",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "build": "npm-run-all -s clean transpile process-grammar minify-grammar",
     "validate": "npm-run-all clean transpile process-grammar validate-grammar",
