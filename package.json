@@ -6,7 +6,8 @@
   "module": "/dist/search-operators.js",
   "unpkg": "/dist/search-operators.min.js",
   "files": [
-    "/dist"
+    "/dist",
+    "/index.d.ts"
   ],
   "scripts": {
     "build": "npm-run-all -s clean transpile process-grammar minify-grammar",
