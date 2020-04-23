@@ -1,54 +1,56 @@
-/** Search Operators declaration file */
+// Search Operators declaration file
 
-/**
- * Search operator applyed to text.
- */
-export interface SearchOperator {
-  type: 'match' | 'not-match' | 'exact' | 'exclude';
-  value: string;
-  in?: string;
-}
+export = SearchOperators;
 
-/**
- * Parse result object.
- */
-export interface ParseResult {
-  filters: SearchOperator[];
-  terms: [];
-}
+declare namespace SearchOperators {
+  /**
+   * Search operator applyed to text.
+   */
+  export interface SearchOperator {
+    type: 'match' | 'not-match' | 'exact' | 'exclude';
+    value: string;
+    in?: string;
+  }
 
-/**
- * Parse options.
- * keys:Allowed match operator's keys.
- */
-export interface ParseOptions {
-  keys: string[];
-}
+  /**
+   * Parse result object.
+   */
+  export interface ParseResult {
+    filters: SearchOperator[];
+    terms: [];
+  }
 
-/**
- * Smallest element recognized by parser.
- */
-export interface Token {
-  // Basic data.
-  type:
-    | 'TEXT'
-    | 'INCLUDE_WORD'
-    | 'EXCLUDE_WORD'
-    | 'EXACT_PHRASE'
-    | 'MATCH'
-    | 'NOT_MATCH';
-  value: string;
+  /**
+   * Parse options.
+   * keys:Allowed match operator's keys.
+   */
+  export interface ParseOptions {
+    keys: string[];
+  }
 
-  // Location data.
-  startOffset: number;
-  endOffset: number;
-  startLine: number;
-  endLine: number;
-  startColumn: number;
-  endColumn: number;
-}
+  /**
+   * Smallest element recognized by parser.
+   */
+  export interface Token {
+    // Basic data.
+    type:
+      | 'TEXT'
+      | 'INCLUDE_WORD'
+      | 'EXCLUDE_WORD'
+      | 'EXACT_PHRASE'
+      | 'MATCH'
+      | 'NOT_MATCH';
+    value: string;
 
-export interface SearchOperators {
+    // Location data.
+    startOffset: number;
+    endOffset: number;
+    startLine: number;
+    endLine: number;
+    startColumn: number;
+    endColumn: number;
+  }
+
   /**
    * Extract search terms and filters.
    * @param search text to parse
@@ -56,14 +58,10 @@ export interface SearchOperators {
    * @throws "Unexpected token Exception" exception, showing the actual
    * line from the source, pointing with the ^ marker to the bad token.
    */
-  parse(search: string, options?: ParserOptions): ParseResult;
+  export function parse(search: string, options?: ParseOptions): ParseResult;
 
   /**
    * Tokens corresponding to the last parse operation.
    */
-  tokens: Token[];
+  export let tokens: Token[];
 }
-
-declare const searchOperators: SearchOperators;
-
-export default searchOperators;
