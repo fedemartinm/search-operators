@@ -1,4 +1,4 @@
 export default {
-  text: '[^\\u0020]+',
+  text: '[^\\u0000-\\u0020]+',
   id: '\\w+',
 };
