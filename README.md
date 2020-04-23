@@ -9,12 +9,12 @@ A search operators parser to filter search requests
 ### Parsing strings
 ```js
 const searchOperators = require('./search-operators');
-var value = searchOperators.parse('+react useState');
+var value = searchOperators.parse('+github.com useState useEffect');
 console.log(value); 
 //the parser will separate the text in terms and filters.
 //{
 //  "filters": [{ "type": "exact", "value": "github.com" }],
-//  "terms": ["useState"]
+//  "terms": ["useState","useEffect"]
 //}
 ```
 
@@ -55,10 +55,6 @@ console.log(parser.tokens);
 //    endColumn: 3
 //}
 ```
-
-### Limitations
-A search is defined by the rule `<Fitlers> <Terms> | <Terms> <Filters>`. Filters must be added at the beginning or at the end. Something like `+p term1 term2 -p` will not work.
-
 
 ### Development
 
